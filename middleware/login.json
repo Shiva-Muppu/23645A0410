@@ -1,0 +1,45 @@
+
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Install the latest PowerShell for new features and improvements! https://aka.ms/PSWindows
+
+PS C:\Users\RAVI> $regBody = @{
+>>     email = "muppushiva1@gmail.com"
+>>     name = "Shiva Kumar"
+>>     mobileNo = "8008612258"
+>>     githubUsername = "https://github.com/Shiva-Muppu"
+>>     rollNo = "23645A0410"
+>>     accessCode = "mCHMRj"
+>> } | ConvertTo-Json
+PS C:\Users\RAVI>
+PS C:\Users\RAVI> $regResp = Invoke-RestMethod -Uri "http://20.244.56.144/evaluation-service/register" -Method Post -Body $regBody -ContentType "application/json"
+PS C:\Users\RAVI>
+PS C:\Users\RAVI> $regResp
+
+
+email        : muppushiva1@gmail.com
+name         : shiva kumar
+rollNo       : 23645a0410
+accessCode   : mCHMRj
+clientID     : 0804f7b3-8d35-4f4e-aa1b-965ed47bc94a
+clientSecret : ZZYbBtFPhENeYGah
+
+
+
+
+PS C:\Users\RAVI> $authBody = @{
+>>     email        = "muppushiva1@gmail.com"
+>>     name         = "Shiva Kumar"
+>>     rollNo       = "23645A0410"
+>>     accessCode   = "mCHMRj"
+>>     clientID     = "0804f7b3-8d35-4f4e-aa1b-965ed47bc94a"
+>>     clientSecret = "ZZYbBtFPhENeYGah"
+>> } | ConvertTo-Json
+PS C:\Users\RAVI>
+PS C:\Users\RAVI> $authResp = Invoke-RestMethod -Uri "http://20.244.56.144/evaluation-service/auth" `
+>>                               -Method Post `
+>>                               -Body $authBody `
+>>                               -ContentType "application/json"
+PS C:\Users\RAVI>
+PS C:\Users\RAVI> $authResp
